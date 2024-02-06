@@ -3,7 +3,7 @@ import asyncio
 from sqlalchemy import text, insert
 
 from src.database import async_engine, engine
-from src.models import metadata, workers_table
+from src.models import metadata
 
 
 async def start_engine():
