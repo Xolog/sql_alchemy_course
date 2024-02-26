@@ -2,7 +2,7 @@ import enum
 import datetime
 
 from typing import Annotated
-from sqlalchemy import ForeignKey, text, String
+from sqlalchemy import ForeignKey, text, String, MetaData, Table, Integer, Column
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
 
 
@@ -41,3 +41,13 @@ class ResumeOrm(Base):
     worker_id: Mapped[int] = mapped_column(ForeignKey('worker.id', ondelete='CASCADE'))
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]
+
+
+metadata_obj = MetaData()
+
+workers_table = Table(
+    'workers',
+    metadata_obj,
+    Column('id', Integer, primary_key=True),
+    Column('username', String)
+)
