@@ -36,7 +36,7 @@ class ResumeOrm(Base):
 
     id: Mapped[intpk]
     title: Mapped[str_256] = mapped_column(String(256))
-    compensation: Mapped[str | None]
+    compensation: Mapped[int | None]
     workload: Mapped[Workload]
     worker_id: Mapped[int] = mapped_column(ForeignKey('worker.id', ondelete='CASCADE'))
     created_at: Mapped[created_at]
